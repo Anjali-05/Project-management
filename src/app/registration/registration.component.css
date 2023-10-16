@@ -1,0 +1,20 @@
+#registerform{
+    position: relative;
+    width: 60%;
+    
+    justify-content: center;
+    margin-top: 2%;
+    margin-left: 20%;
+}
+#first {
+    width: 50%;
+    float: left;
+    padding: 20px;
+    border: 2px  ;
+}  
+h4{
+    font-style: oblique;
+    text-align: center;
+    margin-top: 5%;
+    color: blue;
+}

@@ -1,0 +1,62 @@
+<mat-toolbar color="primary">
+  <span>Project Management Portal</span>
+  <span class="example-spacer"></span>  
+  </mat-toolbar>
+
+<h4>User Register</h4>
+
+<div class="d-flex p-2" id="registerform">
+    <form #Registrationform="ngForm" (ngSubmit)="RegisterUser()">
+        <div id="first">
+        <div class="form-group">
+            <label for="username">User Name:</label>
+            <input type="text" class="form-control" name="username" id="username" [(ngModel)]="user.username" required>
+          </div>
+        <div class="form-group">
+          <label for="userid">User ID:</label>
+          <input type="text" class="form-control" name="userid" id="userid" [(ngModel)]="user.userid" required>
+        </div>
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" class="form-control" name="email" id="email" [(ngModel)]="user.email" #email="ngModel" required
+            pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"
+            [class.has-error]="email.invalid && email.touched"
+            >
+            <!--<small class="text-danger" [class.d-none]="email.valid || email.untouched">Email Id is required.</small>-->
+            <div *ngIf="email.errors && (email.invalid && email.touched)">
+              <small class="text-danger" *ngIf="email.errors?.['required'] && email.touched">Email Id is required.</small>
+              <small class="text-danger" *ngIf="email.errors?.['pattern'] && email.touched">Please enter valid email Id.</small>
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label for="contact">Contact No.:</label>
+            <input type="text" class="form-control" name="contact" id="contact" [(ngModel)]="user.contact" required>
+        </div>
+      </div>
+        <div id="first">
+        <div class="form-group">
+            <label for="dob">DOB:</label>
+            <input type="text" class="form-control" name="dob" id="dob" [(ngModel)]="user.dob" required>
+        </div>
+        <div class="form-group">
+            <label for="usertype">User Type:</label>
+            <input type="text" class="form-control" name="usertype" id="usertype" [(ngModel)]="user.usertype" required>
+          </div>
+        <div class="form-group">
+          <label for="pwd">Password:</label>
+          <input type="password" class="form-control" name="userpassword" id="userpassword" [(ngModel)]="user.userpassword" required #password="ngModel"
+          pattern="^(?=\D*\d)(?=[^a-z]*[a-z])(?=[^A-Z]*[A-Z]).{8,30}$"
+          [class.is-invalid]="password.invalid && password.touched">
+          <!--<small class="text-danger" [class.d-none]="password.valid || password.untouched">Password is required</small>-->
+          <div *ngIf="password.errors && (password.invalid && password.touched)">
+            <small class="text-danger" *ngIf="password.errors?.['required'] && password.touched">Password Id is required.</small>
+            <small class="text-danger" *ngIf="password.errors?.['pattern'] && password.touched">Password should be greater than 8 characters long and should contain atleast one uppercase,one numeric and a special character</small>
+          </div>
+        </div>
+      </div>
+        
+        <button type="submit" class="btn btn-primary">Register</button>
+      </form>
+      
+</div>

@@ -1,0 +1,76 @@
+ <h1 mat-dialog-title>Story Detail</h1>
+<div mat-dialog-content>
+    <form [formGroup]="storyForm">
+        <mat-form-field appearance="outline">
+            <mat-label>Project Id</mat-label>
+            <input matInput placeholder="Enter Project Id" formControlName="projectId">
+          </mat-form-field>
+    
+           <mat-form-field appearance="outline">
+            <mat-label>Story Id</mat-label>
+            <input matInput placeholder="Enter Story Id" formControlName="storyId">
+          </mat-form-field>
+    
+          <mat-form-field appearance="outline">
+            <mat-label>Story Title</mat-label>
+            <input matInput placeholder="Enter Story Title"  formControlName="storyTitle">
+          </mat-form-field>
+    
+          <mat-form-field appearance="outline">
+            <mat-label>Story Description</mat-label>
+            <input matInput placeholder="Enter Story Description" formControlName="storyDescription" >
+          </mat-form-field>
+    
+          <mat-form-field appearance="outline">
+            <mat-label>Assignee</mat-label>
+            <input matInput placeholder="Enter Assignee"  formControlName="assignee">
+          </mat-form-field>
+    
+          <mat-form-field appearance="outline">
+            <mat-label>Assignee Email</mat-label>
+            <input matInput placeholder="Enter Assignee Email" formControlName="assigneeEmail">
+          </mat-form-field>
+    
+          <mat-form-field appearance="outline">
+            <mat-label>Assignment Date</mat-label>
+            <input matInput [matDatepicker]="picker1" formControlName="assignmentDate">
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+            <mat-datepicker #picker1></mat-datepicker>
+          </mat-form-field>
+    
+          <mat-form-field appearance="outline">
+            <mat-label>Target Date</mat-label>
+            <input matInput [matDatepicker]="picker2" formControlName="targetDate">
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+            <mat-datepicker #picker2></mat-datepicker>
+          </mat-form-field>
+    
+          <mat-form-field appearance="outline">
+            <mat-label>Status</mat-label>
+            <mat-select matInput formControlName="status">
+              <mat-option value="In progress">In progress</mat-option>
+              <mat-option value="Ready For Test">Ready For Test</mat-option>
+              <mat-option value="Completed">Completed</mat-option>
+              <mat-option value="To-Do">To-Do</mat-option>
+            </mat-select>
+          </mat-form-field>
+    
+          <mat-form-field appearance="outline">
+            <mat-label>Remarks</mat-label>
+            <textarea matInput placeholder="Enter Remarks"  formControlName="remarks"></textarea>
+          </mat-form-field> 
+    </form>
+
+</div>
+<div mat-dialog-action [align]="'end'">
+    <button mat-raised-button color="warn" mat-dialog-close>Close</button>
+    <button style="margin-left: 8px;" mat-raised-button color="primary" mat-dialog-close type="submit" (click)="addStory()">{{actionBtn}}</button>
+</div> 
+
+
+<div class="fields-container">
+  
+
+</div>

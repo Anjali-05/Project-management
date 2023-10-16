@@ -1,0 +1,14 @@
+#heading{
+    color: rgb(26, 127, 215);
+    font-style: oblique;
+    text-align: center;
+}
+
+#loginform{
+    position: relative;
+    width: 20%;
+    margin-top: 10%;
+    margin-left: 40%;
+    
+   
+}

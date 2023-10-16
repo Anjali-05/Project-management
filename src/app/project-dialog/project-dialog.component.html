@@ -1,0 +1,96 @@
+<h1 mat-dialog-title>Add Project Details</h1>
+
+<div mat-dialog-content [formGroup]="projectForm">
+      <mat-form-field appearance="outline">
+        <mat-label>Project Id</mat-label>
+        <input matInput placeholder="Enter Project Id" formControlName="projectId" >
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Project Name</mat-label>
+        <input matInput placeholder="Enter Project Name" formControlName="projectName" >
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Project Description</mat-label>
+        <input matInput placeholder="Enter Project Description" formControlName="projectDescription">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Team Name</mat-label>
+        <input matInput placeholder="Enter Team Name" formControlName="teamName">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Team Size</mat-label>
+        <input matInput placeholder="Enter Team Size" formControlName="teamSize">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Project Manager Name</mat-label>
+        <input matInput placeholder="Enter Project Manager Name" formControlName="projectManagerName">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Project Manager Email Id</mat-label>
+        <input matInput placeholder="Enter Project Manager Email Id" formControlName="projectManagerEmailId" pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}">
+        <mat-error *ngIf="projectForm.get('projectManagerEmailId')?.hasError('email')"
+        >Please enter a valid email address
+      </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Tech Lead Name</mat-label>
+        <input matInput placeholder="Enter Tech Lead Name" formControlName="techLeadName">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Tech Lead Email Id</mat-label>
+        <input matInput placeholder="Enter Tech Lead Email Id" formControlName="techLeadEmailId" pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}">
+        <mat-error *ngIf="projectForm.get('techLeadEmailId')?.hasError('email')"
+        >Please enter a valid email address
+      </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Project Start Date</mat-label>
+        <input matInput [matDatepicker]="picker1" formControlName="projectStartDate">
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+        <mat-datepicker #picker1></mat-datepicker>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Project End Date</mat-label>
+        <input matInput [matDatepicker]="picker2" formControlName="projectEndDate">
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+        <mat-datepicker #picker2></mat-datepicker>
+      </mat-form-field>
+
+
+      <mat-form-field appearance="outline">
+        <mat-label>Tech Stack</mat-label>
+        <input matInput placeholder="Enter Remarks" formControlName="techStack">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Status</mat-label>
+        <mat-select formControlName="status">
+          <mat-option value="In progress">In progress</mat-option>
+          <mat-option value="Ready For Test">Ready For Test</mat-option>
+          <mat-option value="Completed">Completed</mat-option>
+          <mat-option value="To-Do">To-Do</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Remarks</mat-label>
+        <textarea matInput placeholder="Enter Remarks" formControlName="remarks"></textarea>
+      </mat-form-field>
+
+</div>
+<div mat-dialog-action [align]="'end'">
+  <button mat-raised-button color="warn" mat-dialog-close>Close</button>
+  <button style="margin-left: 8px;" mat-raised-button color="primary" mat-dialog-close type="submit" (click)="AddProject()">{{actionBtn}}</button>
+</div>
